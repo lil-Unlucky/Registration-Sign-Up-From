@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Oswald", sans-serif;
+    text-decoration: none;
+}
+
+$primary-color: rgb(22,83,104);
+$gradient-frist: rgba(22,83,104,1);
+$gradient-second: rgba(134,133,129,1);
+$gradient-third: rgba(153,201,205,1);
+$app-color: #fff;
+$secondary-app-color: #eee;
+$form-inner-padding: 30px;
+$input-border-radius: 20px;
+$input-width: 100%;
+$input-height: 40px;
+$link-primary-color: #454545;
+
+$title-font-size: 24px;
+$description-font-size: 18px;
+$description-color: #4a4a4a;
+
+body {
+    background: $primary-color;
+    background: linear-gradient(4deg, $gradient-frist 0%, $gradient-second 65%, $gradient-third 100%);
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    & .sign-app {
+        margin: 50px auto;
+        width: 90%;
+        height: 90%;
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+
+        & .sign-app__left {
+            padding: $form-inner-padding;
+            background-color: $app-color;
+            border-radius: 20px 0 0 20px;
+
+            & .sign-app__left-content {
+                margin: 0 auto;
+                width: 85%;
+                height: 100%;
+
+                & .sign-app__left-content {
+                    display: flex;
+                    flex-direction: column;
+
+                    & .sign-app__left-content--info {
+                        & h1 {
+                            font-size: $title-font-size;
+                            margin-bottom: 5px;
+                        }
+                        & p {
+                            font-size: $description-font-size;
+                            color: $description-color;
+                        }
+                    }
+
+                    & .signUp-form {
+                        margin-top: 50px;
+                        & .form-item {
+                            display: flex;
+                            flex-direction: column;
+
+                            & label {
+                                user-select: none;
+                                margin-left: 20px;
+                                font-size: 22px;
+                                margin-bottom: 4px;
+                            }
+                            & input:not(input[type='checkbox']) {
+                                margin-bottom: 8px;
+                                font-size: 20px;
+                                width: $input-width;
+                                height: $input-height;
+                                border-radius: $input-border-radius;
+                                border: 1px solid black;
+                                padding: 10px 15px;
+                            }
+                            & input:focus {
+                                border: 1px solid black;
+                            }
+                        }
+                        & .form-item.rememberMe {
+                            align-items: center;
+                            flex-direction: row;
+                            margin-bottom: 25px;
+
+                            & label {
+                                font-size: 18px;
+                            }
+                            & input {
+                                margin-left: 20px;
+                                width: 16px;
+                                height: 16px;
+                            }
+                        }
+                        & input[type="submit"] {
+                            width: $input-width;
+                            height: $input-height;
+                            background: $primary-color;
+                            background: linear-gradient(4deg, $gradient-frist 0%, $gradient-second 65%, $gradient-third 100%);
+                            border-radius: $input-border-radius;
+                            border: none;
+                            font-size: 22px;
+                            transition: all .2s linear;
+                        }
+                        & input[type="submit"]:hover {
+                            cursor: pointer;
+                            filter: brightness(80%);
+                        }
+                    }
+
+                    & .sign-app__left-content--footer {
+
+                        & *a {
+                            color: $link-primary-color;
+                        }
+
+                        & .sign-in {
+                            margin-top: 8px;
+                            margin-right: 25px;
+                            display: flex;
+                            justify-content: end;
+                        }
+
+                        & .sign-in-via-socia-network {
+                            margin-top: 30px;
+                            display: flex;
+                            justify-content: space-evenly;
+
+                            & .sign-via-social {
+                                width: 100px;
+
+                                & a {
+                                    display: flex;
+                                    align-items: baseline;
+                                    gap: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        & .sign-app__right {
+            padding: $form-inner-padding;
+            border-radius: 0 20px 20px 0;
+            background-color: $secondary-app-color;
+
+            & img {
+                width: 100%;
+                height: 100%;
+                border-radius: 8px;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .sign-app {
+        grid-template-columns: 1fr !important;
+
+        & .sign-app__left {
+            border-radius: 20px !important;
+        }
+        & .sign-app__right {
+            display: none;
+        }
+        & .sign-app__left-content--info {
+            & h1 {
+                font-size: 22px !important;
+                margin-bottom: 5px;
+            }
+            & p {
+                font-size: 18px !important;
+                color: $description-color;
+            }
+        }
+    }
+}
